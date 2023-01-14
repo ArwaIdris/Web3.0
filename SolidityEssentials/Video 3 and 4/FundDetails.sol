@@ -29,7 +29,7 @@ function  addUser(string memory name,uint256 age) public{
 userCounter++;
 userinfo storage _user = users[userCounter];
 _user.name = name;
-_user.age = age";
+_user.age = age;
 }  
 
 function provideFunding(address _user, uint256 _amount) public {
