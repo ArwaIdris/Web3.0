@@ -11,11 +11,33 @@ struct FundingRoundDetails {
     FundingRound round;
 }
 
+struct userinfo{
+    string name;
+    uint256 age;
+    mapping(address=>uint256) fundingrcvd;
+}
+//mapping(uint256=>userinfo) users;
+mapping(address=>userinfo) use;
+
 FundingRoundDetails[] allRounds;
 mapping(uint256 => FundingRoundDetails) fundingRounds;
 uint256 roundCounter;
-mapping ((address) => FundingRoundDetails) userRounds;
+mapping (address => FundingRoundDetails) userRounds;
+uint256 userCounter;
 
+function  addUser(string memory name,uint256 age) public{
+userCounter++;
+userinfo storage _user = users[userCounter];
+_user.name = name;
+_user.age = age";
+}  
+
+function provideFunding(address _user, uint256 _amount) public {
+userinfo storage _userinfo = use[_user];
+_userinfo.fundingrcvd[msg.sender] = _amount;
+
+
+}
 function addFundingRounds() public {
     FundingRoundDetails memory details1 = FundingRoundDetails(10000,FundingRound.SEED);
     FundingRoundDetails memory details2 = FundingRoundDetails(10000,FundingRound.PRIVATE);
