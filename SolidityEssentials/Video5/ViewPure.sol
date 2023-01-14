@@ -10,7 +10,7 @@ function soSomething() public view returns(uint256){
 }
 // pure cannot even access or modift the state variables even
 function checkPure(uint256 val) public pure retur(uint256){
-    retuen val +34;
+    return val + 34;
 
 }
 
